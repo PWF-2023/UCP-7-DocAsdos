@@ -2,6 +2,13 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <h2 class="text-center text-white text-xl">Doc Asdos</h2>
+        <h3 class="text-center text-white text-l">Aplikasi Pencatatan Asdos</h3>
+        <br>
+        <div class="mb-8 flex justify-center">
+            
+            <img class="w-20" src="https://cdn-icons-png.flaticon.com/512/2981/2981855.png" alt="" />
+        </div>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

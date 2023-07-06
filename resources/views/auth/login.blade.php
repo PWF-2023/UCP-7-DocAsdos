@@ -5,6 +5,13 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <h2 class="text-center text-white text-xl">Doc Asdos</h2>
+        <h3 class="text-center text-white text-l">Aplikasi Pencatatan Asdos</h3>
+        <br>
+        <div class="mb-8 flex justify-center">
+            <img class="w-20 h-20" src="https://cdn-icons-png.flaticon.com/512/2981/2981855.png" alt="" />
+        </div>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -24,6 +31,13 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
+        {{-- Button sign in --}}
+        <br>
+        <x-primary-button class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+                {{ __('Log in') }}
+        </x-primary-button>
+
+        <div class="mt-5 flex justify-between text-sm text-gray-600">
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
@@ -38,10 +52,16 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
+        
+    </div>
+    <div class="flex items-center justify-center mt-4">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
+                {{ __('Dont Have Account?') }}
+            </a>
+        </div>
+    
+    
+
     </form>
 </x-guest-layout>
