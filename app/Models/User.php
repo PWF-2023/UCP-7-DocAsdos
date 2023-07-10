@@ -43,8 +43,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function matkuls()
+    public function courses()
     {
-        return $this->hasMany(Matakuliah::class);
+        return $this->hasMany(Course::class);
     }
 }

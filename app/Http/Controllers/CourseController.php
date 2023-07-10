@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MatkulController extends Controller
+class CourseController extends Controller
 {
     public function index()
     {
-        return view('matkul.index');
+        return view('course.index');
     }
     public function create()
     {
-        return view('matkul.create');
+        return view('course.create');
     }
     public function edit()
     {
-        return view('matkul.edit');
+        return view('course.edit');
     }
 }

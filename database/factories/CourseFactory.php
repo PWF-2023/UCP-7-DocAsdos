@@ -4,8 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
-class MatkulFactory extends Factory
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
+ */
+class CourseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,7 +18,7 @@ class MatkulFactory extends Factory
     {
         return [
             'user_id' => rand(1, 50),
-            'nama_matakuliah' => ucwords(fake()->sentence()),
+            'nama' => ucwords(fake()->sentence()),
             'semester' => rand(1, 9),
         ];
     }

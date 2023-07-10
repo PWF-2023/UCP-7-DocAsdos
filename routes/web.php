@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -31,9 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Matakuliah
-    Route::get('/matkul', [MatkulController::class, 'index'])->name('matkul.index');
-    Route::get('/matkul/create', [MatkulController::class, 'create'])->name('matkul.create');
-    Route::get('/matkul/edit', [MatkulController::class, 'edit'])->name('matkul.edit');
+    Route::get('/course', [CourseController::class, 'index'])->name('course.index');
+    Route::get('/course/create', [CourseController::class, 'create'])->name('course.create');
+    Route::get('/course/edit', [CourseController::class, 'edit'])->name('course.edit');
 
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
