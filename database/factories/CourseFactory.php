@@ -17,9 +17,10 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 50),
+            'user_id' => rand(1, 10),
             'nama' => ucwords(fake()->sentence()),
             'semester' => rand(1, 9),
+            'lecture_id' => rand(1,10),
         ];
     }
 }
