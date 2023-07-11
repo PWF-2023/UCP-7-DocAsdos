@@ -7,10 +7,6 @@
 
         <h2 class="text-center text-white text-xl">Doc Asdos</h2>
         <h3 class="text-center text-white text-l">Aplikasi Pencatatan Asdos</h3>
-        <br>
-        <div class="mb-8 flex justify-center">
-            <img class="w-20 h-20" src="https://cdn-icons-png.flaticon.com/512/2981/2981855.png" alt="" />
-        </div>
 
         <!-- Email Address -->
         <div>
