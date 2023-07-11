@@ -12,10 +12,12 @@ class Lecture extends Model
         'nama',
         'user_id',
         'email',
+        // 'course_id'
     ];
 
-    public function user()
+
+    public function course()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Course::class);
     }
 }

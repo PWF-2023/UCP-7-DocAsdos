@@ -12,10 +12,15 @@ class Course extends Model
         'nama',
         'user_id',
         'semester',
+        'lecture_id',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function lecture(){
+        return $this->hasMany(Lecture::class);
     }
 }
