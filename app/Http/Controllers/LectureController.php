@@ -12,7 +12,11 @@ class LectureController extends Controller
      */
     public function index()
     {
-        return view('lecture.index');
+        $lectures = Lecture::where('id', '!=', '1')
+                    ->orderBy('nama')
+                    ->get();
+
+        return view('lecture.index', compact('lectures'));
     }
 
     /**
