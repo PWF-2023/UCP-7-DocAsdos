@@ -48,6 +48,7 @@
                         </thead>
                         <tbody>
                             @forelse ($courses as $course)
+
                             <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <p>{{ $course->id }}</p>
@@ -61,6 +62,24 @@
                                 <td class="px-6 py-4">
                                     <p>{{ $course->lecture_id }}</p>
                                 </td>
+                                
+                                <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
+                                    <td scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->id }}</p>
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->nama }}</p>
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->semester }}</p>
+                                    </td>
+                                    {{-- <td class="px-6 py-4">
+                                        <p>{{ $course->lecture_id->count() }}</p>
+                                    </td> --}}
+
 
                             </tr>
 

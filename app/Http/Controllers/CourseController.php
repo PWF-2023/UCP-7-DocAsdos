@@ -12,8 +12,11 @@ class CourseController extends Controller
 {
     public function index()
     {
+
         $courses = Course::orderBy('created_at', 'desc')
             ->get();
+=======
+        $courses = Course::get();
 
         //dd($courses);
 
