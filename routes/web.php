@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LectureController;
 use App\Http\Controllers\MatkulController;
@@ -54,6 +55,9 @@ Route::middleware('admin')->group(function(){
 
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+
 });
 
 require __DIR__ . '/auth.php';
