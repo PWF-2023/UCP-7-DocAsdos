@@ -41,7 +41,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/lecture', LectureController::class);
 
     // User
-    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::resource('/user', UserController::class);
 });
 
 require __DIR__ . '/auth.php';

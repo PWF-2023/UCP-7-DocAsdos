@@ -13,8 +13,8 @@ class LectureController extends Controller
     public function index()
     {
         $lectures = Lecture::where('id', '!=', '1')
-                    ->orderBy('nama')
-                    ->get();
+            ->orderBy('nama')
+            ->get();
 
         return view('lecture.index', compact('lectures'));
     }
