@@ -10,9 +10,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::where('user_id', auth()->user()->id)
-                ->orderBy('created_at', 'desc')
-                ->get();
+        $courses = Course::get();
 
         //dd($courses);
 
