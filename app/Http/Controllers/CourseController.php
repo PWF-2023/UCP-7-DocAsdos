@@ -16,6 +16,7 @@ class CourseController extends Controller
         $courses = Course::orderBy('created_at', 'desc')
             ->get();
 
+
         //dd($courses);
 
         return view('course.index', compact('courses'));
