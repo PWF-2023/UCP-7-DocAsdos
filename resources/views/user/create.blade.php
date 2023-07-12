@@ -1,15 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create Course') }}
+            {{ __('Create User') }}
         </h2>
     </x-slot>
 
-    <div class="sm:py-12 h-auto">
+    <div class="sm:py-12 h-screen">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white dark:bg-gray-800 sm:shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="post" action="{{ route('course.store') }}" class="">
+                    {{-- <form method="post" action="{{ route('user.store') }}" class="">
                         @csrf
                         @method('post')
                         <div class="mb-6">
@@ -52,7 +52,7 @@
                             <x-primary-button>{{ __('Save') }}</x-primary-button>
                             <x-cancel-button href="{{ route('course.index') }}" />
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
         </div>
