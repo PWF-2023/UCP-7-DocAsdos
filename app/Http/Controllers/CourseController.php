@@ -15,7 +15,7 @@ class CourseController extends Controller
 
         $courses = Course::orderBy('created_at', 'desc')
             ->get();
-=======
+
         $courses = Course::get();
 
         //dd($courses);
