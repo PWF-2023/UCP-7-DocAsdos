@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                    </a>    
+                    </a>
                 </div>
 
                 <!-- Navigation Links -->
@@ -25,8 +25,11 @@
                     <x-nav-link :href="route('lecture.index')" :active="request()->routeIs('lecture.index')">
                         {{ __('Lecture') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('about.index')" :active="request()->routeIs('about.index')">
+                        {{ __('About') }}
+                    </x-nav-link>
                     @endcan
-                    
+
                 </div>
             </div>
 
@@ -34,7 +37,7 @@
 
             <div class="shrink-0 flex items-center">
                   <div class=" ml-2">
-                     
+
                         <button type="button" x-bind:class="darkMode ? 'bg-indigo-500' : 'bg-gray-200'"
                             x-on:click="darkMode = !darkMode"
                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -67,7 +70,7 @@
                     </div>
                 </div>
 
-            
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -128,6 +131,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('lecture.index')" :active="request()->routeIs('lecture.index')">
                 {{ __('Lecture') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('about.index')" :active="request()->routeIs('about.index')">
+                {{ __('About') }}
             </x-responsive-nav-link>
         </div>
 
