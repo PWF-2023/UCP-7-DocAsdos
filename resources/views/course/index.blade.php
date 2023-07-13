@@ -15,12 +15,14 @@
                         </div>
                         <div>
                             @if (session('success'))
-                            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)" class="text-sm text-green-600 dark:text-green-400">{{ session('success') }}
-                            </p>
+                                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+                                    class="text-sm text-green-600 dark:text-green-400">{{ session('success') }}
+                                </p>
                             @endif
                             @if (session('danger'))
-                            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)" class="text-sm text-red-600 dark:text-red-400">{{ session('danger') }}
-                            </p>
+                                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
+                                    class="text-sm text-red-600 dark:text-red-400">{{ session('danger') }}
+                                </p>
                             @endif
                         </div>
                     </div>
@@ -39,7 +41,7 @@
                                     Semester
                                 </th>
                                 <th class="px-6 py-3" scope="col">
-                                    Dosen ID
+                                    Nama Dosen
                                 </th>
                                 <th class="px-6 py-3" scope="col">
                                     Action
@@ -49,28 +51,36 @@
                         <tbody>
                             @forelse ($courses as $course)
 
-                            <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <p>{{ $course->id }}</p>
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                    <p>{{ $course->nama }}</p>
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                    <p>{{ $course->semester }}</p>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <p>{{ $course->lecture_id }}</p>
-                                </td>
+                                <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
+                                    <td scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->id }}</p>
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->nama }}</p>
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $course->semester }}</p>
+                                    </td>
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        @foreach ($lectures as $lecture)
+                                            @if ($course->lecture_id == $lecture->id)
+                                                {{ $lecture->nama }}
+                                            @endif
+                                        @endforeach
 
-                            </tr>
+                                    </td>
+
+                                </tr>
 
                             @empty
-                            <tr class="bg-white dark:bg-gray-800">
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                    Empty
-                                </td>
-                            </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        Empty
+                                    </td>
+                                </tr>
                             @endforelse
                         </tbody>
 

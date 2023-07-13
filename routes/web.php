@@ -34,12 +34,15 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Course
-    Route::get('/course', [CourseController::class, 'index'])->name('course.index');
-    Route::get('/course/create', [CourseController::class, 'create'])->name('course.create');
-    Route::get('/course/edit', [CourseController::class, 'edit'])->name('course.edit');
+    // Route::get('/course', [CourseController::class, 'index'])->name('course.index');
+    // Route::get('/course/create', [CourseController::class, 'create'])->name('course.create');
+    // Route::get('/course/edit', [CourseController::class, 'edit'])->name('course.edit');
+    Route::resource('/course', CourseController::class);
 
     // Lecture
     Route::resource('/lecture', LectureController::class);
+
+
 
     // User
     Route::resource('/user', UserController::class);
