@@ -12,14 +12,15 @@ class CourseController extends Controller
 {
     public function index()
     {
+        // $lectures = Lecture::with('lecture')->get();
 
-        $courses = Course::orderBy('created_at', 'desc')
+        $courses = Course::with('lecture')
             ->get();
 
 
         //dd($courses);
 
-        return view('course.index', compact('courses'));
+        return view('course.index', compact('courses','lectures'));
     }
     public function create()
     {

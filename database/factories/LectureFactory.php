@@ -17,7 +17,6 @@ class LectureFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 10),
             'nama' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             // 'course_id' => rand(1, 10),
