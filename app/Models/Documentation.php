@@ -14,7 +14,7 @@ class Documentation extends Model
         'user_id',
         'course_id',
         'lecture_id',
-        'nama',
+        'image',
     ];
 
     public function course()
