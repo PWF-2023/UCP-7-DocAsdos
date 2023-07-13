@@ -13,7 +13,7 @@
                         @csrf
                         @method('post')
                         <div class="mb-6">
-                            <x-input-label for="nama" :value="__('Nama')" />
+                            <x-input-label for="nama" :value="__('Nama Dosen')" />
                             <x-text-input id="nama" name="nama" type="text" class="block w-full mt-1" autofocus autocomplete="nama" :value="old('nama')" />
                             <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                         </div>
