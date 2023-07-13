@@ -26,9 +26,10 @@ class CourseController extends Controller
         $lectures = Lecture::get();
         return view('course.create', compact('users', 'lectures'));
     }
-    public function edit(Course $course)
+
+    public function show(Course $course)
     {
-        return view('course.edit');
+        //
     }
 
     public function store(Request $request)
@@ -44,5 +45,51 @@ class CourseController extends Controller
         ]);
 
         return redirect()->route('course.index')->with('success', 'Course Created succesfully!');
+    }
+
+    public function edit(Course $course)
+    {
+        $users = User::where('id', '!=', '1')->get();
+        $lectures = Lecture::get();
+        // $lectures = Lecture::where('user_id', auth()->user()->id->get());
+        if ( $course->id) {
+            return view('course.edit', compact('course','users','lectures'));
+            # code...
+        }else{
+            return redirect()->route('course.index')->with('danger', 'You are not authorized to edit this lecture!');
+        }
+    }
+
+    public function update(Request $request, Course $course)
+    {
+        $request->validate([
+            'nama' => 'required|max:255',
+            'semester' => 'required',
+            // 'lecture_id' => [
+            //     'nullable',
+            //     Rule::exists('lecture','id')->where(function($query){
+            //         $query->where('user_id', auth()->user()->id);
+            //     })
+            // ]
+            ]);
+
+            $course->update([
+                'nama' => ucfirst($request->nama),
+                'semester' => ucfirst($request->semester),
+                // 'lecture_id' => $request->lecture_id
+            ]);
+
+            return redirect()->route('course.index')->with('success', 'Course updated successfully!');
+    }
+
+    public function destroy(Course $course)
+    {
+        if ($course->id) {
+            $course->delete();
+            return redirect()->route('course.index')->with('success', 'Course deleted succesfully!');
+            # code...
+        }else{
+            return redirect()->route('course.index')->with('danger', 'You are not authorized to delete this course!');
+        }
     }
 }

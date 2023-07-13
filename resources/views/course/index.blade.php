@@ -57,15 +57,30 @@
                                     </td>
                                     <td
                                         class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                        <p>{{ $course->nama }}</p>
+                                        <a href="{{ route('course.edit', $course) }}" class="hover:underline">
+                                            {{ $course->nama }}
+                                        </a>
                                     </td>
                                     <td
                                         class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
                                         <p>{{ $course->semester }}</p>
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                            <p>{{ $course->lecture->nama }}</p>
+                                        <p>{{ $course->lecture->nama }}</p>
 
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex space-x-3">
+                                            {{-- Action here --}}
+                                            <form action="{{ route('course.destroy', $course) }}" method="Post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit"
+                                                    class="text-red-600 dark:text-red-400 whitespace-nowrap">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @empty

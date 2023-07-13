@@ -61,7 +61,7 @@ class LectureController extends Controller
         if ($lecture->id) {
             return view('lecture.edit', compact('lecture'));
         } else {
-            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to edit this category!');
+            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to edit this lecture!');
         }
     }
 
@@ -90,7 +90,7 @@ class LectureController extends Controller
             $lecture->delete();
             return redirect()->route('lecture.index')->with('success', 'Lecture deleted succesfully!');
         } else {
-            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to delete this category!');
+            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to delete this Lecture!');
         }
     }
 }
