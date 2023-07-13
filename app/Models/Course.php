@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'nama',
         'user_id',
         'semester',
-        'lecture_id',
+        'lecture_id'
     ];
 
     public function user()
@@ -20,7 +21,8 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function lecture(){
-        return $this->hasMany(Lecture::class);
+    public function lecture()
+    {
+        return $this->belongsTo(Lecture::class, 'lecture_id');
     }
 }

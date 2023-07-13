@@ -50,7 +50,6 @@
                         </thead>
                         <tbody>
                             @forelse ($courses as $course)
-
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -65,16 +64,10 @@
                                         <p>{{ $course->semester }}</p>
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        @foreach ($lectures as $lecture)
-                                            @if ($course->lecture_id == $lecture->id)
-                                                {{ $lecture->nama }}
-                                            @endif
-                                        @endforeach
+                                            <p>{{ $course->lecture->nama }}</p>
 
                                     </td>
-
                                 </tr>
-
                             @empty
                                 <tr class="bg-white dark:bg-gray-800">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
@@ -83,7 +76,6 @@
                                 </tr>
                             @endforelse
                         </tbody>
-
                     </table>
                 </div>
             </div>
