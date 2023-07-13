@@ -86,6 +86,11 @@ class LectureController extends Controller
      */
     public function destroy(Lecture $lecture)
     {
-        //
+        if ($lecture->id) {
+            $lecture->delete();
+            return redirect()->route('lecture.index')->with('success', 'Lecture deleted succesfully!');
+        } else {
+            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to delete this category!');
+        }
     }
 }
