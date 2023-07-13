@@ -12,15 +12,13 @@ class CourseController extends Controller
 {
     public function index()
     {
-        // $lectures = Lecture::with('lecture')->get();
+        // $lectures = Lecture::get();
 
         $courses = Course::with('lecture')
-            ->get();
+        ->orderBy('created_at', 'desc')
+        ->get();
 
-
-        //dd($courses);
-
-        return view('course.index', compact('courses','lectures'));
+    return view('course.index', compact('courses'));
     }
     public function create()
     {
@@ -28,7 +26,7 @@ class CourseController extends Controller
         $lectures = Lecture::get();
         return view('course.create', compact('users', 'lectures'));
     }
-    public function edit()
+    public function edit(Course $course)
     {
         return view('course.edit');
     }
