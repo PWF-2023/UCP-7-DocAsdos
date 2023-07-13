@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-<div class="py-12 h-auto">
+<div class="py-12 min-h-screen">
       <!-- about -->
       <section class="bg-white dark:bg-gray-800 ">
         <div class="mx-auto max-w-5xl px-6 py-16 text-center">
@@ -15,7 +15,6 @@
             <div class="w-24 border-b-4 border-yellow-400"></div>
           </div>
           <p class="mt-4 text-gray-600 dark:text-gray-200">Aplikasi ini tentang pencatatan dokumentasi asisten dosen. tujuan dibuatnya aplikasi ini adalah untuk mempermudah asisten dosen untuk melaporkan hasil asdos nya kepada Tata Usaha.</p>
-
         </div>
 
         <div class="mb-12 flex flex-col items-center justify-center">
@@ -65,4 +64,6 @@
                     </div>
                 </div>
       </section>
+</div>
+
 </x-app-layout>
