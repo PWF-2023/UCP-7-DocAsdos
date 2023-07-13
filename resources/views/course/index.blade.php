@@ -8,6 +8,19 @@
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                  <div class="px-6 pt-6 md:w-1/2 2xl:w-1/3">
+                        @if (request('search'))
+                        <h2 class="pb-3 text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                            Search results for : {{ request('search') }}
+                        </h2>
+                        @endif
+                        <form class="mt-5 flex items-center gap-2">
+                            <x-text-input id="search" name="search" type="text" class="w-full" placeholder="Search by name or semester ..." value="{{ request('search') }}" autofocus />
+                            <x-primary-button type="submit">
+                                {{ __('Search') }}
+                            </x-primary-button>
+                        </form>
+                    </div>
                 <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
                         <div>

@@ -15,6 +15,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     @can('admin')
                     <x-nav-link :href="route('course.index')" :active="request()->routeIs('course.index')">
                         {{ __('Course') }}
@@ -25,14 +26,13 @@
                     <x-nav-link :href="route('lecture.index')" :active="request()->routeIs('lecture.index')">
                         {{ __('Lecture') }}
                     </x-nav-link>
+                    @endcan
                     <x-nav-link :href="route('about.index')" :active="request()->routeIs('about.index')">
                         {{ __('About') }}
                     </x-nav-link>
-                    @endcan
                     <x-nav-link :href="route('documentation.index')" :active="request()->routeIs('documentation.index')">
                         {{ __('Documentation') }}
                     </x-nav-link>
-
                 </div>
             </div>
 

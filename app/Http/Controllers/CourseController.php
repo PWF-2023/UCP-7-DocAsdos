@@ -14,11 +14,28 @@ class CourseController extends Controller
     {
         // $lectures = Lecture::get();
 
-        $courses = Course::with('lecture')
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $search = request('search');
+        if ($search) {
+            $courses = Course::where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%')
+                    ->orWhere('semester',  'like', '%' . $search . '%');
+            })
+                ->orderBy('nama')
+                ->where('id', '!=', '1')
+                ->paginate(20)
+                ->withQueryString();
+        } else {
+            $courses = Course::where('id', '!=', '1')
+                ->orderBy('nama')
+                ->paginate(10);
+        }
 
-    return view('course.index', compact('courses'));
+
+        // $courses = Course::with('lecture')
+        //     ->orderBy('created_at', 'desc')
+        //     ->get();
+
+        return view('course.index', compact('courses'));
     }
     public function create()
     {
@@ -52,10 +69,10 @@ class CourseController extends Controller
         $users = User::where('id', '!=', '1')->get();
         $lectures = Lecture::get();
         // $lectures = Lecture::where('user_id', auth()->user()->id->get());
-        if ( $course->id) {
-            return view('course.edit', compact('course','users','lectures'));
+        if ($course->id) {
+            return view('course.edit', compact('course', 'users', 'lectures'));
             # code...
-        }else{
+        } else {
             return redirect()->route('course.index')->with('danger', 'You are not authorized to edit this lecture!');
         }
     }
@@ -71,15 +88,15 @@ class CourseController extends Controller
             //         $query->where('user_id', auth()->user()->id);
             //     })
             // ]
-            ]);
+        ]);
 
-            $course->update([
-                'nama' => ucfirst($request->nama),
-                'semester' => ucfirst($request->semester),
-                // 'lecture_id' => $request->lecture_id
-            ]);
+        $course->update([
+            'nama' => ucfirst($request->nama),
+            'semester' => ucfirst($request->semester),
+            // 'lecture_id' => $request->lecture_id
+        ]);
 
-            return redirect()->route('course.index')->with('success', 'Course updated successfully!');
+        return redirect()->route('course.index')->with('success', 'Course updated successfully!');
     }
 
     public function destroy(Course $course)
@@ -88,7 +105,7 @@ class CourseController extends Controller
             $course->delete();
             return redirect()->route('course.index')->with('success', 'Course deleted succesfully!');
             # code...
-        }else{
+        } else {
             return redirect()->route('course.index')->with('danger', 'You are not authorized to delete this course!');
         }
     }

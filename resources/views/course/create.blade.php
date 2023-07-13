@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="sm:py-12 h-auto">
+    <div class="py-12 min-h-screen">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white dark:bg-gray-800 sm:shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -13,7 +13,7 @@
                         @csrf
                         @method('post')
                         <div class="mb-6">
-                            <x-input-label for="nama" :value="__('Nama')" />
+                            <x-input-label for="nama" :value="__('Nama Mata Kuliah')" />
                             <x-text-input id="nama" name="nama" type="text" class="block w-full mt-1" autofocus autocomplete="nama" :value="old('nama')" />
                             <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                         </div>
