@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 h-auto">
+    <div class="py-12 min-h-screen">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
@@ -15,7 +15,7 @@
                             Search results for : {{ request('search') }}
                         </h2>
                         @endif
-                        <form class="flex items-center gap-2">
+                        <form class="mt-5 flex items-center gap-2">
                             <x-text-input id="search" name="search" type="text" class="w-full" placeholder="Search by name or email ..." value="{{ request('search') }}" autofocus />
                             <x-primary-button type="submit">
                                 {{ __('Search') }}
