@@ -34,7 +34,7 @@ class LectureController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|max:30',
         ]);
 
         Lecture::create([
@@ -72,10 +72,12 @@ class LectureController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:255',
+            'email' => 'required|max:30',
         ]);
 
         $lecture->update([
             'nama' => ucfirst($request->nama),
+            'email' => ucfirst($request->email),
         ]);
 
         return redirect()->route('lecture.index')->with('success', 'Lecture updated successfully!');
