@@ -12,10 +12,21 @@ class LectureController extends Controller
      */
     public function index()
     {
-        $lectures = Lecture::where('id', '!=', '1')
-            ->orderBy('nama')
-            ->get();
-
+        $search = request('search');
+        if ($search) {
+            $lectures = Lecture::where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%')
+                    ->orWhere('email',  'like', '%' . $search . '%');
+            })
+                ->orderBy('nama')
+                ->where('id', '!=', '0')
+                ->paginate(20)
+                ->withQueryString();
+        } else {
+            $lectures = Lecture::where('id', '!=', '0')
+                ->orderBy('nama')
+                ->paginate(10);
+        }
         return view('lecture.index', compact('lectures'));
     }
 
@@ -34,7 +45,7 @@ class LectureController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|max:30',
         ]);
 
         Lecture::create([
@@ -72,10 +83,12 @@ class LectureController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:255',
+            'email' => 'required|max:30',
         ]);
 
         $lecture->update([
             'nama' => ucfirst($request->nama),
+            'email' => ucfirst($request->email),
         ]);
 
         return redirect()->route('lecture.index')->with('success', 'Lecture updated successfully!');
