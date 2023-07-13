@@ -6,6 +6,7 @@ use App\Http\Controllers\LectureController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DocController;
 use App\Models\Matakuliah;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +44,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/lecture', LectureController::class);
 
 
-
+    Route::resource('/documentation', DocController::class);
     // User
     Route::resource('/user', UserController::class);
 });

@@ -29,6 +29,9 @@
                         {{ __('About') }}
                     </x-nav-link>
                     @endcan
+                    <x-nav-link :href="route('documentation.index')" :active="request()->routeIs('documentation.index')">
+                        {{ __('Documentation') }}
+                    </x-nav-link>
 
                 </div>
             </div>
