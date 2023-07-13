@@ -18,6 +18,11 @@
                                 <x-text-input id="nama" name="nama" type="text" class="block w-full mt-1" :value="old('nama', $lecture->nama)" required autofocus autocomplete="nama" />
                                 <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                             </div>
+                            <div class="mb-6">
+                                <x-input-label for="email" :value="__('Email')" />
+                                <x-text-input id="email" name="email" type="text" class="block w-full mt-1" :value="old('email', $lecture->email)" required autofocus autocomplete="email" />
+                                <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                            </div>
                             <div class="flex items-center gap-4">
                                 <x-primary-button>{{ __('Save') }}</x-primary-button>
                                 <x-cancel-button href="{{ route('lecture.index') }}" />
