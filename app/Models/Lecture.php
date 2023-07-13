@@ -18,5 +18,10 @@ class Lecture extends Model
     {
         return $this->hasMany(Course::class, 'lecture_id');
     }
+
+    public function documentations()
+    {
+        return $this->hasMany(Course::class, 'lecture_id');
+    }
 }
 
