@@ -32,7 +32,17 @@ class LectureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required|max:255',
+        ]);
+
+        Lecture::create([
+            'nama' => ucfirst($request->nama),
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('lecture.index')->with('success', 'Lecture created successfully!');
     }
 
     /**
@@ -48,7 +58,11 @@ class LectureController extends Controller
      */
     public function edit(Lecture $lecture)
     {
-        return view('lectur.edit');
+        if ($lecture->id) {
+            return view('lecture.edit', compact('lecture'));
+        } else {
+            return redirect()->route('lecture.index')->with('danger', 'You are not authorized to edit this category!');
+        }
     }
 
     /**
@@ -56,7 +70,15 @@ class LectureController extends Controller
      */
     public function update(Request $request, Lecture $lecture)
     {
-        //
+        $request->validate([
+            'nama' => 'required|max:255',
+        ]);
+
+        $lecture->update([
+            'nama' => ucfirst($request->nama),
+        ]);
+
+        return redirect()->route('lecture.index')->with('success', 'Lecture updated successfully!');
     }
 
     /**
