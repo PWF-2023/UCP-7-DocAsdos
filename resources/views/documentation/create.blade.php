@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create Course') }}
+            {{ __('Create Documentation') }}
         </h2>
     </x-slot>
 
@@ -15,7 +15,7 @@
                         <div class="mb-6">
                             <x-input-label for="image" :value="__('Image')" />
                             <x-text-input id="image" name="image" type="text" class="block w-full mt-1" autofocus autocomplete="image" :value="old('image')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('nama')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>
                         <div class="mb-6">
                         <x-input-label for="user_id" :value="__('Matakuliah')" />
@@ -29,7 +29,6 @@
                                 @endforeach
                             </x-select>
                             <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('semester')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="user_id" :value="__('Nama Asdos')" />

@@ -13,15 +13,13 @@ class DocController extends Controller
 {
     public function index()
     {
-        
-        // $docs = Documentation::with('course')
-        // ->orderBy('created_at', 'desc')
-        // ->get();
-        $courses = Course::get();
+        $docs = Documentation::with('course')
+        ->orderBy('created_at', 'desc')
+        ->get();
         $users = User::get();
         $lectures = Lecture::get();
 
-        return view('documentation.index', compact('docs','users','lectures','courses'));
+        return view('documentation.index', compact('docs','users','lectures'));
     }
 
     public function create()
