@@ -72,8 +72,7 @@
                                         @endforeach
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                        <img src="{{ asset('fotodok/'.$doc->image)}}" alt="">
-                                        <p>{{ $doc->image }}</p>
+                                        <img src="{{ asset('fotodok/'.$doc->image)}}" alt="" style="width: 100px; ">
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
