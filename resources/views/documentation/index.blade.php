@@ -52,17 +52,17 @@
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <p>{{ $doc->course->nama }}</p>
                                     </td>
-                                    <td class="hidden px-6 py-4 md:block">
-                                        @foreach ($lectures as $lecture)
-                                            @if($lecture->id==$doc->course->lecture_id)
-                                                <p>{{ $lecture->nama }}</p>
+                                    <td class="hidden px-6 py-4 md:block ">
+                                        @foreach ($users as $user)
+                                            @if($user->id==$doc->user_id)
+                                                <p>{{ $user->name }}</p>
                                             @endif
                                         @endforeach
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                        @foreach ($users as $user)
-                                            @if($user->id==$doc->course->user_id)
-                                                <p>{{ $user->name }}</p>
+                                        @foreach ($lectures as $lecture)
+                                            @if($lecture->id==$doc->lecture_id)
+                                                <p>{{ $lecture->nama }}</p>
                                             @endif
                                         @endforeach
                                     </td>

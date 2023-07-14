@@ -14,7 +14,7 @@
                         @method('post')
                         <div class="mb-6">
                             <x-input-label for="image" :value="__('Image')" />
-                            <x-text-input id="image" name="image" type="text" class="block w-full mt-1" autofocus autocomplete="image" :value="old('image')" />
+                            <x-text-input id="image" name="image" type="file" class="block w-full mt-1" autofocus autocomplete="image" :value="old('image')" />
                             <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>
                         <div class="mb-6">
