@@ -32,6 +32,7 @@ class DocController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
             'image' => 'required|max:255',
         ]);
@@ -41,6 +42,7 @@ class DocController extends Controller
             'lecture_id' => $request->lecture_id,
             'image' => ucfirst($request->image),
         ]);
+
 
         return redirect()->route('documentation.index')->with('success', 'Documentation Created succesfully!');
     }
