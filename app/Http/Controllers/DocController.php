@@ -16,6 +16,7 @@ class DocController extends Controller
         $docs = Documentation::with('course')
         ->orderBy('created_at', 'desc')
         ->get();
+        
         $users = User::get();
         $lectures = Lecture::get();
 
@@ -49,5 +50,15 @@ class DocController extends Controller
 
 
         return redirect()->route('documentation.index')->with('success', 'Documentation Created succesfully!');
+    }
+
+    public function destroy(Documentation $documentation)
+    {
+        if ($documentation->id) {
+            $documentation->delete();
+            return redirect()->route('documentation.index')->with('success', 'Lecture deleted succesfully!');
+        } else {
+            return redirect()->route('documentation.index')->with('danger', 'You are not authorized to delete this Lecture!');
+        }
     }
 }

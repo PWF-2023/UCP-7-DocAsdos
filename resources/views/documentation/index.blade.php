@@ -45,6 +45,9 @@
                                 <th class="px-6 py-3" scope="col">
                                     Gambar
                                 </th>
+                                <th scope="col" class="px-6 py-3">
+                                        Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,13 +75,27 @@
                                         <img src="{{ asset('fotodok/'.$doc->image)}}" alt="">
                                         <p>{{ $doc->image }}</p>
                                     </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex space-x-3">
+                                            {{-- Action here --}}
+                                            <form action="{{ route('documentation.destroy', $doc) }}" method="Post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="text-red-600 dark:text-red-400 whitespace-nowrap">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
+  
                             @empty
                                 <tr class="bg-white dark:bg-gray-800">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         Empty
                                     </td>
                                 </tr>
+                                
                             @endforelse
                         </tbody>
                     </table>
