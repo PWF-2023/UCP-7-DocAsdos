@@ -44,8 +44,11 @@ class DocController extends Controller
             'image' => ucfirst($request->image),
         ]);
         
+        $data = Documentation::create($request->all());
         if($request->hasFile('image')){
             $request->file('image')->move('fotodok/', $request->file('image')->getClientOriginalName());
+            $data->image = $request->file('image')->getClientOriginalName();
+            $data->save();
         }
 
 
