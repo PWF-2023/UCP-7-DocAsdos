@@ -42,6 +42,10 @@ class DocController extends Controller
             'lecture_id' => $request->lecture_id,
             'image' => ucfirst($request->image),
         ]);
+        
+        if($request->hasFile('image')){
+            $request->file('image')->move('fotodok/', $request->file('image')->getClientOriginalName());
+        }
 
 
         return redirect()->route('documentation.index')->with('success', 'Documentation Created succesfully!');

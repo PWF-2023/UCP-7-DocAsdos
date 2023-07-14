@@ -29,4 +29,5 @@ class Documentation extends Model
     {
         return $this->belongsTo(Lecture::class, 'lecture_id');
     }
+    
 }

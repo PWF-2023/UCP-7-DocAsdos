@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="sm:py-12 h-auto">
+    <div class="sm:py-12 min-h-screen">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white dark:bg-gray-800 sm:shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="post" action="{{ route('documentation.store') }}" class="">
+                    <form method="post" action="{{ route('documentation.store') }}" class="" enctype="multipart/form-data">
                         @csrf
                         @method('post')
                         <div class="mb-6">
