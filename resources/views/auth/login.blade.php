@@ -42,8 +42,8 @@
                         </button>
                     </div>
                 </div>
-        <h2 class="text-center text-white text-xl">Doc Asdos</h2>
-        <h3 class="text-center text-white text-l">Aplikasi Pencatatan Asdos</h3>
+        <h2 class="text-center text-gray-500 dark:text-gray-400">Doc Asdos</h2>
+        <h3 class="text-center text-gray-500 dark:text-gray-400">Aplikasi Pencatatan Asdos</h3>
 
         <!-- Email Address -->
         <div>
